@@ -2,9 +2,16 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 
-function CustomTextField({ label, helperText, icon, ...props }: textField) {
+function CustomTextField({
+  type,
+  label,
+  helperText,
+  icon,
+  ...props
+}: textField) {
   return (
     <TextField
+      type={type}
       label={label}
       helperText={helperText}
       color="secondary"
@@ -13,6 +20,7 @@ function CustomTextField({ label, helperText, icon, ...props }: textField) {
           <InputAdornment position="start">{icon}</InputAdornment>
         ),
       }}
+      fullWidth
       {...props}
     />
   );

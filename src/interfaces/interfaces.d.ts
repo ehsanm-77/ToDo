@@ -1,6 +1,7 @@
 interface textField {
-  icon: React.ReactNode;
-  helperText: string;
+  type: string;
   label: string;
+  helperText: string;
+  icon: React.ReactNode;
   required: true;
 }
