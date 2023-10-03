@@ -7,6 +7,7 @@ function CustomTextField({
   label,
   helperText,
   icon,
+  error,
   ...props
 }: textField) {
   return (
@@ -15,6 +16,7 @@ function CustomTextField({
       label={label}
       helperText={helperText}
       color="secondary"
+      error={error}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">{icon}</InputAdornment>
