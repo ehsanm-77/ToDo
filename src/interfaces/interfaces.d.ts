@@ -7,7 +7,6 @@ interface textField {
     | Merge<FieldError, FieldErrorsImpl<any>>
     | undefined;
   icon: React.ReactNode;
-  required: true;
   error: boolean | undefined;
 }
 
@@ -16,4 +15,9 @@ interface IFormInput {
   number: string;
   email: string;
   date: string;
+}
+
+interface FormInputs {
+  control: Control<FieldValues, any>;
+  errors: FieldErrors<FieldValues>;
 }
