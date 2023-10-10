@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { Controller } from 'react-hook-form';
 import CustomTextField from '@/components/TextField/CustomTextField';
 import { BiPhoneCall } from 'react-icons/bi';
@@ -6,6 +6,7 @@ import { BsCalendar2Date } from 'react-icons/bs';
 import { AiOutlineUser, AiOutlineMail } from 'react-icons/ai';
 
 const FormInputs = ({ control, errors }: FormInputs) => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -18,6 +19,10 @@ const FormInputs = ({ control, errors }: FormInputs) => {
         sx={{
           display: 'flex',
           gap: '10px',
+          flexDirection: 'column',
+          [theme.breakpoints.up('md')]: {
+            flexDirection: 'row',
+          },
         }}
       >
         <Controller
@@ -65,6 +70,10 @@ const FormInputs = ({ control, errors }: FormInputs) => {
         sx={{
           display: 'flex',
           gap: '10px',
+          flexDirection: 'column',
+          [theme.breakpoints.up('md')]: {
+            flexDirection: 'row',
+          },
         }}
       >
         <Controller

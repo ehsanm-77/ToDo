@@ -23,6 +23,9 @@ function CustomTextField({
         ),
       }}
       fullWidth
+      sx={{
+        height: '80px',
+      }}
       {...props}
     />
   );
