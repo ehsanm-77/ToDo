@@ -1,8 +1,10 @@
 import FormInputs from '@/components/main/FormInputs/FormInputs';
 import SubmitButton from '@/components/shared/SubmitButton/SubmitButton';
+import { setFormData } from '@/redux/slice/formSlice';
 import { Box } from '@mui/material';
 import React from 'react';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 
 const MainPage = () => {
   const {
@@ -12,10 +14,18 @@ const MainPage = () => {
     formState: { errors },
   } = useForm();
 
+  const dispatch = useDispatch();
+  const formData: IFormInput = useSelector(
+    (state: RootState) => state.form.formData
+  );
+  console.log(formData);
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log('Form data submitted:', data);
+    dispatch(setFormData(data));
     reset();
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box

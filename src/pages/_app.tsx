@@ -4,6 +4,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
 import DarkModeButton from '@/components/shared/DarkModeButton/DarkModeButton';
+import { Provider } from 'react-redux';
+import store from '@/redux/store/store';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [modePage, setModePage] = useState<'light' | 'dark'>('light');
@@ -42,11 +44,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div>
-        <DarkModeButton toggleDarkMode={toggleDarkMode} modePage={modePage} />
-        <Component {...pageProps} />
-      </div>
+      <Provider store={store}>
+        <CssBaseline />
+        <div>
+          <DarkModeButton toggleDarkMode={toggleDarkMode} modePage={modePage} />
+          <Component {...pageProps} />
+        </div>
+      </Provider>
     </ThemeProvider>
   );
 }

@@ -26,3 +26,5 @@ interface DarkBtn {
   toggleDarkMode: () => void;
   modePage: 'light' | 'dark';
 }
+
+type RootState = ReturnType<typeof store.getState>;
