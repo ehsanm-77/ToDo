@@ -21,3 +21,8 @@ interface FormInputs {
   control: Control<FieldValues, any>;
   errors: FieldErrors<FieldValues>;
 }
+
+interface DarkBtn {
+  toggleDarkMode: () => void;
+  modePage: 'light' | 'dark';
+}

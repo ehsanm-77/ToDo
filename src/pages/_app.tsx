@@ -3,8 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
-import { MdDarkMode } from 'react-icons/md';
-import { CiLight } from 'react-icons/ci';
+import DarkModeButton from '@/components/shared/DarkModeButton/DarkModeButton';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [modePage, setModePage] = useState<'light' | 'dark'>('light');
@@ -45,20 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div>
-        <button
-          onClick={toggleDarkMode}
-          className={`${
-            modePage === 'dark'
-              ? 'text-[#03132b] bg-[#cfe0fa]'
-              : 'text-[#cfe0fa] bg-[#03132b]'
-          }  rounded-br-3xl p-3`}
-        >
-          {modePage === 'dark' ? (
-            <CiLight size={20} />
-          ) : (
-            <MdDarkMode size={20} />
-          )}
-        </button>
+        <DarkModeButton toggleDarkMode={toggleDarkMode} modePage={modePage} />
         <Component {...pageProps} />
       </div>
     </ThemeProvider>
