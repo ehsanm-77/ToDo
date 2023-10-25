@@ -2,6 +2,7 @@ import FormInputs from '@/components/main/FormInputs/FormInputs';
 import SubmitButton from '@/components/shared/SubmitButton/SubmitButton';
 import { setFormData } from '@/redux/slice/formSlice';
 import { Box } from '@mui/material';
+import router, { Router } from 'next/router';
 import React from 'react';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,6 +25,7 @@ const MainPage = () => {
     console.log('Form data submitted:', data);
     dispatch(setFormData(data));
     reset();
+    router.push('/users');
   };
 
   return (
